@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: content-box;
+    }
+    html{
+        height: 100dvh
+    }
+    body {
+        /* height: 100dvh; */
+        width: 100%;
+        background: black;
+    }
+    #main-cont {
+        margin: 35vmin auto;
+        width: 70vmin;
+    }
+    
+    #main-cont div {
+        text-align: center;
+    }
+    #main-cont:first-of-type{
+        position: relative;
+        background: rgb(45,45,45);
+        border: 2px dashed white;
+        padding: 20px;
+    }
+    span {
+        background: rgb(128, 127, 127);
+        padding: 1rem;
+        font-weight: bold;
+        color: rgb(194, 36, 36);
+        font-size: calc((87vmin / 4) - 3rem);
+        display: flex;
+        flex-direction: row;
+        overflow-y:scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none; 
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type:mandatory;
+        font-family:'Times New Roman', Times, serif
+    }
+    @media screen and (min-width: 600px ) {
+        span {
+        font-size: calc((95vmin / 4.6) - 4.6rem);
+        }
+    }
+    @media screen and (min-width: 768px) {
+        span {
+        font-size: calc((90vmin / 5.3) - 3.6rem);
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        span {
+        font-size: calc((85vmin / 7.2) - 2rem);
+        }
+    }
+    #btns {
+        display: flex;
+        justify-content: space-around;
+    }
+    #btns :nth-child(1){
+        background: rgb(24, 87, 24);
+    }
+    #btns :nth-child(2){
+        background: rgb(121, 26, 26);
+    }
+    button{
+        position: relative;
+        background-color: transparent;
+        padding: 12px 30px;
+        border-radius: 10px;
+        outline-style: double;
+        outline-color: rgb(208, 208, 243);
+        outline-offset: -6px;
+        color: white;
+        font-size: large;
+    }
+    button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgb(228, 227, 227);
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 1;
+    animation: draw-btn-border 1.5s ease forwards infinite;
+}
+
+@keyframes draw-btn-border {
+    0%{
+        clip-path: inset(0 0 0 100%);
+    }
+    25% {
+        clip-path: inset(100% 0 0 0);
+    }
+    50% {
+        clip-path: inset(0 100% 0 0);
+    }
+    75%{
+        clip-path: inset(0 0 100% 0);
+    }
+    100% {
+        clip-path: inset(0 0 100% 100%);
+
+    }
+}
+</style>
+<body>
+    <div id="main-cont">
+        <div>
+            <span id="counterDisplay"></span>
+        </div>
+        <br><br>
+        <div id="btns">
+                <button type="button">Start</button>
+                <button type="button">Stop</button>
+        </div>
+    </div>
+   
+    <script src="counter.js" defer></script>
+</body>
+</html>
